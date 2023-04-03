@@ -34,14 +34,21 @@ namespace MediaTekDocuments.dal
         /// méthode HTTP pour insert
         /// </summary>
         private const string POST = "POST";
-        /// <summary>
-        /// méthode HTTP pour update
-
-        /// <summary>
-        /// Méthode privée pour créer un singleton
-        /// initialise l'accès à l'API
+		/// <summary>
+		/// méthode HTTP pour update
         /// </summary>
-        private Access()
+		private const string PUT = "PUT";
+		/// <summary>
+		/// méthode HTTP pour update
+		/// </summary>
+		private const string DELETE = "DELETE";
+
+
+		/// <summary>
+		/// Méthode privée pour créer un singleton
+		/// initialise l'accès à l'API
+		/// </summary>
+		private Access()
         {
             String authenticationString;
             try
@@ -99,11 +106,21 @@ namespace MediaTekDocuments.dal
             return new List<Categorie>(lesPublics);
         }
 
-        /// <summary>
-        /// Retourne toutes les livres à partir de la BDD
-        /// </summary>
-        /// <returns>Liste d'objets Livre</returns>
-        public List<Livre> GetAllLivres()
+		/// <summary>
+		/// Retourne tous les suivis à partir de la BDD
+		/// </summary>
+		/// <returns>Liste d'objets Revue</returns>
+		public List<Suivi> GetAllSuivis()
+		{
+			List<Suivi> lesSuivis = TraitementRecup<Suivi>(GET, "suivi");
+			return lesSuivis;
+		}
+
+		/// <summary>
+		/// Retourne toutes les livres à partir de la BDD
+		/// </summary>
+		/// <returns>Liste d'objets Livre</returns>
+		public List<Livre> GetAllLivres()
         {
             List<Livre> lesLivres = TraitementRecup<Livre>(GET, "livre");
             return lesLivres;
@@ -141,12 +158,23 @@ namespace MediaTekDocuments.dal
             return lesExemplaires;
         }
 
-        /// <summary>
-        /// ecriture d'un exemplaire en base de données
-        /// </summary>
-        /// <param name="exemplaire">exemplaire à insérer</param>
-        /// <returns>true si l'insertion a pu se faire (retour != null)</returns>
-        public bool CreerExemplaire(Exemplaire exemplaire)
+		/// <summary>
+		/// Retourne les commandes d'un document
+		/// </summary>
+		/// <param name="idDocument">id du document concernée</param>
+		/// <returns>Liste d'objets CommandeDocument</returns>
+		public List<CommandeDocument> GetCommandesDocument(string idDocument)
+		{
+			List<CommandeDocument> lesCommandes = TraitementRecup<CommandeDocument>(GET, "commandedocument/" + idDocument);
+			return lesCommandes;
+		}
+
+		/// <summary>
+		/// ecriture d'un exemplaire en base de données
+		/// </summary>
+		/// <param name="exemplaire">exemplaire à insérer</param>
+		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
+		public bool CreerExemplaire(Exemplaire exemplaire)
         {
             String jsonExemplaire = JsonConvert.SerializeObject(exemplaire, new CustomDateTimeConverter());
             try {
@@ -161,14 +189,65 @@ namespace MediaTekDocuments.dal
             return false; 
         }
 
-        /// <summary>
-        /// Traitement de la récupération du retour de l'api, avec conversion du json en liste pour les select (GET)
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="methode">verbe HTTP (GET, POST, PUT, DELETE)</param>
-        /// <param name="message">information envoyée</param>
-        /// <returns>liste d'objets récupérés (ou liste vide)</returns>
-        private List<T> TraitementRecup<T> (String methode, String message)
+		/// <summary>
+		/// ecriture d'une commande en base de données
+		/// </summary>
+		/// <param name="commande">commande à insérer</param>
+		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
+		public bool CreerCommandes(Commande commande)
+		{
+			String jsonCommande = JsonConvert.SerializeObject(commande, new CustomDateTimeConverter());
+
+			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
+			List<Commande> liste = TraitementRecup<Commande>(POST, "commande/" + jsonCommande);
+			return (liste != null);
+
+		}
+
+		/// <summary>
+		/// ecriture d'une commandedocument en base de données
+		/// </summary>
+		/// <param name="id">commande à insérer</param>
+		/// <param name="nbExemplaire"> le nombre d'exemplaire à insérer</param>
+		/// <param name="idLivreDvd">l'id du document à insérer</param>
+		/// <param name="suivi">le suivi à insérer</param>
+		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
+		public bool CreerCommandesDocument(string id, int nbExemplaire, string idLivreDvd, int suivi)
+		{
+			String jsonCommandeDocument = "{ \"id\" : " + id + ", \"nbExemplaire\" : " + nbExemplaire + ", " +
+                "\"idLivreDvd\" : \"" + idLivreDvd + "\"" + ", \"idSuivi\" : " + suivi + "}";
+
+			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
+			List<CommandeDocument> liste = TraitementRecup<CommandeDocument>(POST, "commandedocument/" + jsonCommandeDocument);
+			return (liste != null);
+
+
+		}
+
+		/// <summary>
+		/// Supression d'une commande en base de données
+		/// </summary>
+		/// <param name="Id">commande à supprimer</param>
+		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
+		public bool SupprimerCommandes(string Id)
+		{
+			String jsonIdCommande = "{ \"id\" : " + Id + "}";
+
+			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
+			List<Commande> liste = TraitementRecup<Commande>(DELETE, "commande/" + jsonIdCommande);
+			return (liste != null);
+
+
+		}
+
+		/// <summary>
+		/// Traitement de la récupération du retour de l'api, avec conversion du json en liste pour les select (GET)
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="methode">verbe HTTP (GET, POST, PUT, DELETE)</param>
+		/// <param name="message">information envoyée</param>
+		/// <returns>liste d'objets récupérés (ou liste vide)</returns>
+		private List<T> TraitementRecup<T> (String methode, String message)
         {
             List<T> liste = new List<T>();
             try
@@ -198,10 +277,68 @@ namespace MediaTekDocuments.dal
             return liste;
         }
 
+		/// <summary>
+		/// Modification d'une commande en base de données
+		/// </summary>
+		/// <param name="Id">commande à modifier</param>
+		/// <param name="nbExemplaire"> le nombre d'exemplaire à insérer</param>
+		/// <param name="idLivreDvd">l'id du document à insérer</param>
+		/// <param name="suivi">le suivi à modifie</param>
+		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
+		public bool ModifierCommandesDocument(string Id, int nbExemplaire, string idLivreDvd, int suivi)
+		{
+			String jsonCommandeDocument = "{ \"id\" : " + Id + " , \"nbExemplaire\" : " + nbExemplaire + ", \"idLivreDvd\" : \"" + idLivreDvd + "\"" + ", \"idSuivi\" : " + suivi + " }";
+
+			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
+			List<CommandeDocument> liste = TraitementRecup<CommandeDocument>(PUT, "commandedocument/" + Id + "/" + jsonCommandeDocument);
+			return (liste != null);
+
+		}
+
         /// <summary>
-        /// Modification du convertisseur Json pour gérer le format de date
+        /// Retourne les abonnements d'un document
         /// </summary>
-        private sealed class CustomDateTimeConverter : IsoDateTimeConverter
+        /// <param name="idDocument">id du document concernée</param>
+        /// <returns>Liste d'objets CommandesDocument</returns>
+        public List<Abonnement> GetAbonnement(string idDocument)
+        {
+            List<Abonnement> lescommandesabonnements = TraitementRecup<Abonnement>(GET, "abonnement/" + idDocument);
+            return lescommandesabonnements;
+        }
+
+		/// <summary>
+		/// ecriture d'une commande de revue en base de données
+		/// </summary>
+		/// <param name="id">l'id du document à insérer</param>
+		/// <param name="dateFinAbonnement">l'id du document à insérer</param>
+		/// <param name="idRevue">le suivi à insérer</param>
+		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
+		public bool CreerCommandesRevue(string id, DateTime dateFinAbonnement, string idRevue)
+		{
+			String jsondateCommande = JsonConvert.SerializeObject(dateFinAbonnement, new CustomDateTimeConverter());
+			String jsonabonnement = "{  \"id\" : " + id + ", \"dateFinabonnement\" : " + jsondateCommande + ", \"idRevue\" :  \"" + idRevue + "\"" + "}";
+
+
+			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
+			List<CommandeDocument> liste = TraitementRecup<CommandeDocument>(POST, "abonnement/" + jsonabonnement);
+			return (liste != null);
+
+		}
+
+		/// <summary>
+		/// Retourne tous les suivis à partir de la BDD
+		/// </summary>
+		/// <returns>Liste d'objets Revue</returns>
+		public List<FinAbonnement> GetFinAbonnement()
+		{
+			List<FinAbonnement> lesabonnements = TraitementRecup<FinAbonnement>(GET, "finabonnement");
+			return lesabonnements;
+		}
+
+		/// <summary>
+		/// Modification du convertisseur Json pour gérer le format de date
+		/// </summary>
+		private sealed class CustomDateTimeConverter : IsoDateTimeConverter
         {
             public CustomDateTimeConverter()
             {
