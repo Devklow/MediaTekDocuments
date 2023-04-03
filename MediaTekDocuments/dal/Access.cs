@@ -18,10 +18,14 @@ namespace MediaTekDocuments.dal
         /// adresse de l'API
         /// </summary>
         private static readonly string uriApi = "http://localhost/rest_mediatekdocuments/";
+		/// <summary>
+		/// nom de connexion à la bdd
+		/// </summary>
+		private static readonly string authenticationName = "MediaTekDocuments.Properties.Settings.mediatek86AuthenticationString";
         /// <summary>
-        /// instance unique de la classe
-        /// </summary>
-        private static Access instance = null;
+		/// instance unique de la classe
+		/// </summary>
+		private static Access instance = null;
         /// <summary>
         /// instance de ApiRest pour envoyer des demandes vers l'api et recevoir la réponse
         /// </summary>
@@ -53,8 +57,9 @@ namespace MediaTekDocuments.dal
             String authenticationString;
             try
             {
-                authenticationString = "admin:adminpwd";
-                api = ApiRest.GetInstance(uriApi, authenticationString);
+                authenticationString = getAuthenticationString(authenticationName);
+               
+				api = ApiRest.GetInstance(uriApi, authenticationString);
             }
             catch (Exception e)
             {
@@ -352,6 +357,20 @@ namespace MediaTekDocuments.dal
 			// retourne l'utilisateur trouvé
 			return (liste[0]);
 
+		}
+
+		/// <summary>
+		/// Récupération de la chaîne d'authentification
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		static string getAuthenticationString(string name)
+		{
+			string returnValue = null;
+			ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[name];
+			if (settings != null)
+				returnValue = settings.ConnectionString;
+			return returnValue;
 		}
 
 		/// <summary>
