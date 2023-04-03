@@ -316,7 +316,8 @@ namespace MediaTekDocuments.dal
 		public bool CreerCommandesRevue(string id, DateTime dateFinAbonnement, string idRevue)
 		{
 			String jsondateCommande = JsonConvert.SerializeObject(dateFinAbonnement, new CustomDateTimeConverter());
-			String jsonabonnement = "{  \"id\" : " + id + ", \"dateFinabonnement\" : " + jsondateCommande + ", \"idRevue\" :  \"" + idRevue + "\"" + "}";
+			String jsonabonnement = "{  \"id\" : " + id + ", \"dateFinabonnement\" : " + jsondateCommande + 
+                ", \"idRevue\" :  \"" + idRevue + "\"" + "}";
 
 
 			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
@@ -333,6 +334,24 @@ namespace MediaTekDocuments.dal
 		{
 			List<FinAbonnement> lesabonnements = TraitementRecup<FinAbonnement>(GET, "finabonnement");
 			return lesabonnements;
+		}
+
+		/// <summary>
+		/// Récupération de l'utilisateur correspondant au login
+		/// </summary>
+		/// <param name="login">login de l'utiisateur à chercher</param>
+		/// <returns>l'utilisateur trouvé, ou null</returns>
+		public User GetAuthentification(string login)
+		{
+
+			List<User> liste = TraitementRecup<User>(GET, "utilisateur/" + login);
+			if (liste == null || liste.Count == 0)
+			{
+				return null;
+			}
+			// retourne l'utilisateur trouvé
+			return (liste[0]);
+
 		}
 
 		/// <summary>
@@ -364,5 +383,5 @@ namespace MediaTekDocuments.dal
             }
         }
 
-    }
+	}
 }

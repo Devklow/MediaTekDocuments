@@ -76,7 +76,7 @@
 			this.Controls.Add(this.dgvAbonnements);
 			this.Controls.Add(this.label1);
 			this.Name = "FrmAlerteAbonnement";
-			this.Text = "FrmAlerteAbonnement";
+			this.Text = "Alerte de fins d\'abonnements";
 			((System.ComponentModel.ISupportInitialize)(this.dgvAbonnements)).EndInit();
 			this.ResumeLayout(false);
 

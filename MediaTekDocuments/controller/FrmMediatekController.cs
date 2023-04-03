@@ -9,7 +9,7 @@ namespace MediaTekDocuments.controller
     /// <summary>
     /// Contrôleur lié à FrmMediatek
     /// </summary>
-    class FrmMediatekController
+    public class FrmMediatekController
     {
         /// <summary>
         /// Objet d'accès aux données
@@ -192,7 +192,8 @@ namespace MediaTekDocuments.controller
 		{
 			List<Exemplaire> lesExemplaires = GetExemplairesRevue(abonnement.IdRevue);
 			bool datedeparution = false;
-			foreach (Exemplaire exemplaire in lesExemplaires.Where(exemplaires => ParutionDansAbonnement(abonnement.DateCommande, abonnement.DateFinAbonnement, exemplaires.DateAchat)))
+			foreach (Exemplaire exemplaire in lesExemplaires.Where(exemplaires =>
+			ParutionDansAbonnement(abonnement.DateCommande, abonnement.DateFinAbonnement, exemplaires.DateAchat)))
 			{
 				datedeparution = true;
 			}

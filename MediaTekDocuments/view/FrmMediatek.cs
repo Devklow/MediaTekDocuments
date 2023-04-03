@@ -31,7 +31,13 @@ namespace MediaTekDocuments.view
         {
             InitializeComponent();
             this.controller = new FrmMediatekController();
-        }
+			if (Service.Libelle == "prêts")
+			{
+				tabOngletsApplication.TabPages.Remove(tabCommandeDVD);
+				tabOngletsApplication.TabPages.Remove(tabCommandeLivre);
+				tabOngletsApplication.TabPages.Remove(tabCommandeRevue);
+			}
+		}
 
 
 		/// <summary>
@@ -1882,7 +1888,7 @@ namespace MediaTekDocuments.view
 		private void FrmMediatek_Load(object sender, EventArgs e)
 		{
 			List<FinAbonnement> lesabonnements = controller.GetFinAbonnement();
-            if (lesabonnements.Count > 0)
+            if (lesabonnements.Count > 0 && Service.Libelle == "administratif")
             {
 				FrmAlerteAbonnement alerteFinAbonnements = new FrmAlerteAbonnement(lesabonnements)
 				{
