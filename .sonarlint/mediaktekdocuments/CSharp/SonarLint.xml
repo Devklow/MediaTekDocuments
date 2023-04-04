@@ -11,7 +11,7 @@
     </Setting>
     <Setting>
       <Key>sonar.cs.ignoreHeaderComments</Key>
-      <Value>true</Value>
+      <Value>false</Value>
     </Setting>
     <Setting>
       <Key>sonar.cs.roslyn.ignoreIssues</Key>

@@ -27,7 +27,7 @@ namespace MediaTekDocuments.view
         /// <summary>
         /// Constructeur : création du contrôleur lié à ce formulaire
         /// </summary>
-        internal FrmMediatek()
+        public FrmMediatek()
         {
             InitializeComponent();
             this.controller = new FrmMediatekController();
@@ -1979,7 +1979,7 @@ namespace MediaTekDocuments.view
                 grpCmdRevueDel.Enabled = false;
 			}
 		}
-
+        
 		private void FrmMediatek_Load(object sender, EventArgs e)
 		{
 			List<FinAbonnement> lesabonnements = controller.GetFinAbonnement();

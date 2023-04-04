@@ -68,8 +68,8 @@ namespace MediaTekDocuments.dal
 			String authenticationString;
             try
             {
-                authenticationString = GetAuthenticationString(authenticationName);
-               
+				authenticationString = GetAuthenticationString(authenticationName);
+
 				api = ApiRest.GetInstance(uriApi, authenticationString);
             }
             catch (Exception e)
@@ -273,7 +273,7 @@ namespace MediaTekDocuments.dal
                 JObject retour = api.RecupDistant(methode, message);
                 // extraction du code retourné
                 String code = (String)retour["code"];
-                if (code.Equals("200"))
+				if (code.Equals("200"))
                 {
                     // dans le cas du GET (select), récupération de la liste d'objets
                     if (methode.Equals(GET))

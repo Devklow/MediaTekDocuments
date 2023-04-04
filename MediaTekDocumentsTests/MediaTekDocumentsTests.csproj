@@ -45,6 +45,9 @@
       <HintPath>..\packages\MSTest.TestFramework.2.2.7\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -56,6 +59,22 @@
   </Choose>
   <ItemGroup>
     <Compile Include="controller\FrmMediatekControllerTests.cs" />
+    <Compile Include="model\AbonnementTests.cs" />
+    <Compile Include="model\CategorieTests.cs" />
+    <Compile Include="model\CommandeDocumentTests.cs" />
+    <Compile Include="model\CommandeTests.cs" />
+    <Compile Include="model\DocumentTests.cs" />
+    <Compile Include="model\DvdTests.cs" />
+    <Compile Include="model\EtatTests.cs" />
+    <Compile Include="model\ExemplaireTests.cs" />
+    <Compile Include="model\FinAbonnementTests.cs" />
+    <Compile Include="model\GenreTests.cs" />
+    <Compile Include="model\LivreTests.cs" />
+    <Compile Include="model\PublicTests.cs" />
+    <Compile Include="model\RayonTests.cs" />
+    <Compile Include="model\RevueTests.cs" />
+    <Compile Include="model\SuiviTests.cs" />
+    <Compile Include="model\UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

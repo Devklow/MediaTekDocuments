@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "3242eeb1-d367-4d57-9c55-a5237eb34525",
+		"name": "Collection Requête Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26686849"
+	},
+	"item": [
+		{
+			"name": "Abonnement à échéance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}finabonnement",
+					"host": [
+						"{{Link}}finabonnement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tout les livres",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}livre",
+					"host": [
+						"{{Link}}livre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tout les genres",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}genre",
+					"host": [
+						"{{Link}}genre"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tout les publics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}public",
+					"host": [
+						"{{Link}}public"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tout les rayons",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}rayon",
+					"host": [
+						"{{Link}}rayon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toutes les revues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}revue",
+					"host": [
+						"{{Link}}revue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Un exemplaire",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}exemplaire/10001",
+					"host": [
+						"{{Link}}exemplaire"
+					],
+					"path": [
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tout les suivis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}suivi",
+					"host": [
+						"{{Link}}suivi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Commandes d'un document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}commandedocument/00017",
+					"host": [
+						"{{Link}}commandedocument"
+					],
+					"path": [
+						"00017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Abonnements d'un document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}abonnement/10001",
+					"host": [
+						"{{Link}}abonnement"
+					],
+					"path": [
+						"10001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'une commande générale",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}commande/{\\\"Id\\\":\\\"5555\\\",\\\"DateCommande\\\":\\\"2023-04-03\\\",\\\"Montant\\\":1000.0}\"}",
+					"host": [
+						"{{Link}}commande"
+					],
+					"path": [
+						"{",
+						"\"Id",
+						"\":",
+						"\"5555",
+						"\",",
+						"\"DateCommande",
+						"\":",
+						"\"2023-04-03",
+						"\",",
+						"\"Montant",
+						"\":1000.0}\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'une commande de document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}commandedocument/{ \\\"id\\\" : 5555, \\\"nbExemplaire\\\" : 5, \\\"idLivreDvd\\\" : \\\"20003\\\", \\\"idSuivi\\\" : 1}\"}",
+					"host": [
+						"{{Link}}commandedocument"
+					],
+					"path": [
+						"{ ",
+						"\"id",
+						"\" : 5555, ",
+						"\"nbExemplaire",
+						"\" : 5, ",
+						"\"idLivreDvd",
+						"\" : ",
+						"\"20003",
+						"\", ",
+						"\"idSuivi",
+						"\" : 1}\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout commande générale pour abonnement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}commande/{\\\"Id\\\":\\\"4444\\\",\\\"DateCommande\\\":\\\"2023-04-03\\\",\\\"Montant\\\":9999.0}\"}",
+					"host": [
+						"{{Link}}commande"
+					],
+					"path": [
+						"{",
+						"\"Id",
+						"\":",
+						"\"4444",
+						"\",",
+						"\"DateCommande",
+						"\":",
+						"\"2023-04-03",
+						"\",",
+						"\"Montant",
+						"\":9999.0}\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'un abonnement",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}abonnement/{  \\\"id\\\" : 4444, \\\"dateFinabonnement\\\" : \\\"2023-04-09\\\", \\\"idRevue\\\" :  \\\"10001\\\"}\"}",
+					"host": [
+						"{{Link}}abonnement"
+					],
+					"path": [
+						"{  ",
+						"\"id",
+						"\" : 4444, ",
+						"\"dateFinabonnement",
+						"\" : ",
+						"\"2023-04-09",
+						"\", ",
+						"\"idRevue",
+						"\" :  ",
+						"\"10001",
+						"\"}\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier une commande",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}commandedocument/7411/{ \\\"id\\\" : 7411 , \\\"nbExemplaire\\\" : 58, \\\"idLivreDvd\\\" : \\\"20003\\\", \\\"idSuivi\\\" : 3 }\"}",
+					"host": [
+						"{{Link}}commandedocument"
+					],
+					"path": [
+						"7411",
+						"{ ",
+						"\"id",
+						"\" : 7411 , ",
+						"\"nbExemplaire",
+						"\" : 58, ",
+						"\"idLivreDvd",
+						"\" : ",
+						"\"20003",
+						"\", ",
+						"\"idSuivi",
+						"\" : 3 }\"}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer une commande",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Link}}commande/{ \\\"id\\\" : 4444}\"}",
+					"host": [
+						"{{Link}}commande"
+					],
+					"path": [
+						"{ ",
+						"\"id",
+						"\" : 4444}\"}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "adminpwd",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
