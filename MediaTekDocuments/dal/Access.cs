@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.Configuration;
+using Serilog;
+using Serilog.Formatting.Json;
 
 namespace MediaTekDocuments.dal
 {
@@ -56,7 +58,14 @@ namespace MediaTekDocuments.dal
 		/// </summary>
 		private Access()
         {
-            String authenticationString;
+			Log.Logger = new LoggerConfiguration()
+				 .MinimumLevel.Verbose()
+				 .WriteTo.Console()
+				 .WriteTo.File(new JsonFormatter(), "logs/log.txt",
+				 rollingInterval: RollingInterval.Day)
+				 .CreateLogger();
+
+			String authenticationString;
             try
             {
                 authenticationString = GetAuthenticationString(authenticationName);
@@ -65,7 +74,8 @@ namespace MediaTekDocuments.dal
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+				Log.Error("Erreur lors la valorisation de le propriété api : " + e.Message);
+				Console.WriteLine(e.Message);
                 Environment.Exit(0);
             }
         }
@@ -191,7 +201,8 @@ namespace MediaTekDocuments.dal
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+				Log.Error("Erreur lors de la creation d'exemplaire : " + ex.Message);
+				Console.WriteLine(ex.Message);
             }
             return false; 
         }
@@ -274,11 +285,13 @@ namespace MediaTekDocuments.dal
                 }
                 else
                 {
-                    Console.WriteLine("code erreur = " + code + " message = " + (String)retour["message"]);
+					Log.Error("code erreur = " + code + " message = " + (String)retour["message"]);
+					Console.WriteLine("code erreur = " + code + " message = " + (String)retour["message"]);
                 }
             }catch(Exception e)
             {
-                Console.WriteLine("Erreur lors de l'accès à l'API : "+e.Message);
+				Log.Error("Erreur lors de l'accès à l'API : " + e.Message);
+				Console.WriteLine("Erreur lors de l'accès à l'API : "+e.Message);
                 Environment.Exit(0);
             }
             return liste;
