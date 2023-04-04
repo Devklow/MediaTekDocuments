@@ -25,7 +25,7 @@ namespace MediaTekDocuments.model
 		public string Titre { get; }
 
 		/// <summary>
-		/// Les composants de la classe
+		/// Constructeur de la classe
 		/// </summary>
 		/// <param name="dateFinAbonnement"></param>
 		/// <param name="idRevue"></param>

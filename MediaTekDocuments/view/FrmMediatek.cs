@@ -19,9 +19,21 @@ namespace MediaTekDocuments.view
     public partial class FrmMediatek : Form
     {
         #region Commun
+        /// <summary>
+        /// Controller lié à ce formulaire
+        /// </summary>
         private readonly FrmMediatekController controller;
+        /// <summary>
+        /// BindingSource des genres
+        /// </summary>
         private readonly BindingSource bdgGenres = new BindingSource();
+        /// <summary>
+        /// Binding source des publics
+        /// </summary>
         private readonly BindingSource bdgPublics = new BindingSource();
+        /// <summary>
+        /// Binding source des rayons
+        /// </summary>
         private readonly BindingSource bdgRayons = new BindingSource();
 
         /// <summary>
@@ -58,7 +70,13 @@ namespace MediaTekDocuments.view
         #endregion
 
         #region Onglet Livres
+        /// <summary>
+        /// Bindingsource des livres de l'onglet livre
+        /// </summary>
         private readonly BindingSource bdgLivresListe = new BindingSource();
+        /// <summary>
+        /// Liste des livres de l'onglet livre
+        /// </summary>
         private List<Livre> lesLivres = new List<Livre>();
 
         /// <summary>
@@ -373,7 +391,13 @@ namespace MediaTekDocuments.view
         #endregion
 
         #region Onglet Dvd
+        /// <summary>
+        /// BindingSource des dvd de l'onglet Dvd
+        /// </summary>
         private readonly BindingSource bdgDvdListe = new BindingSource();
+        /// <summary>
+        /// list des Dvd de l'onglet Dvd
+        /// </summary>
         private List<Dvd> lesDvd = new List<Dvd>();
 
         /// <summary>
@@ -710,7 +734,13 @@ namespace MediaTekDocuments.view
         #endregion
 
         #region Onglet Revues
+        /// <summary>
+        /// BindingSource des Revue de l'onglet Revue
+        /// </summary>
         private readonly BindingSource bdgRevuesListe = new BindingSource();
+        /// <summary>
+        /// Liste de revue de l'onglet revue
+        /// </summary>
         private List<Revue> lesRevues = new List<Revue>();
 
         /// <summary>
@@ -1043,9 +1073,18 @@ namespace MediaTekDocuments.view
         }
         #endregion
 
-        #region Onglet Paarutions
+        #region Onglet Parutions
+        /// <summary>
+        /// BindingSource des exemplaires de l'onglet Parutions
+        /// </summary>
         private readonly BindingSource bdgExemplairesListe = new BindingSource();
+        /// <summary>
+        /// liste des exmplaires de l'onglet Parution
+        /// </summary>
         private List<Exemplaire> lesExemplaires = new List<Exemplaire>();
+        /// <summary>
+        /// constante de la valeur de l'etat Neuf
+        /// </summary>
         const string ETATNEUF = "00001";
 
         /// <summary>
@@ -1309,10 +1348,22 @@ namespace MediaTekDocuments.view
 		#endregion
 
 		#region Onglet CommandesLivres
-		private List<Livre> lesLivresCommandes = new List<Livre>();
-		private List<CommandeDocument> lesCommandesDocuments = new List<CommandeDocument>();
-		private readonly BindingSource bdgLivreCommandes = new BindingSource();
-		private List<Suivi> lesSuivis = new List<Suivi>();
+		/// <summary>
+        /// Liste des livres dans l'onglet CommandesLivres
+        /// </summary>
+        private List<Livre> lesLivresCommandes = new List<Livre>();
+		/// <summary>
+        /// Commandes du livre sélectioné de l'onglet CommandeLivre
+        /// </summary>
+        private List<CommandeDocument> lesCommandesDocuments = new List<CommandeDocument>();
+		/// <summary>
+        /// BindingSource des commandes de livre de l'onglet CommandesLivres
+        /// </summary>
+        private readonly BindingSource bdgLivreCommandes = new BindingSource();
+		/// <summary>
+        /// Liste des suivis dans l'onglet CommandesLivres
+        /// </summary>
+        private List<Suivi> lesSuivis = new List<Suivi>();
 
 		/// <summary>
 		/// Ouverture de l'onglet Livres : 
@@ -1327,7 +1378,11 @@ namespace MediaTekDocuments.view
             grpCmdLivreMod.Enabled = false;
 		}
 
-		private void RemplirLivreInfo(Livre livre)
+		/// <summary>
+        /// Affiche les informations du livre sélectioné
+        /// </summary>
+        /// <param name="livre"></param>
+        private void RemplirLivreInfo(Livre livre)
         {
             txbCmdLivresTitre.Text = livre.Titre;
             txbCmdLivresAuteur.Text = livre.Auteur;
@@ -1370,7 +1425,12 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnLivresNumRecherche_click(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction déclenché au click sur la recherche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLivresNumRecherche_click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbCmdLivresNumRecherche.Text.Equals(""))
@@ -1422,7 +1482,12 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnAjoutCommandeLivre_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction déclenché lors du clique sur le bouton ajouter une commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAjoutCommandeLivre_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txtboxNewCommandeLivre.Text.Equals("") && !txtboxNewMontant.Text.Equals("") && !txtboxNewNbExemplaire.Text.Equals(""))
@@ -1484,7 +1549,7 @@ namespace MediaTekDocuments.view
 		}
 
 		/// <summary>
-		/// Bouton permettant de modifier l'état d'une commande (Réglée)
+		/// Bouton permettant de modifier l'état d'une commande (Livrée)
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1496,14 +1561,24 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnRelancer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton permettant de modifier l'état d'une commande (Relancée)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRelancer_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Relancée");
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnSupprimer_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Bouton permettant de supprimer une commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSupprimer_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			CommandeDocument commandeDocument = (CommandeDocument)bdgLivreCommandes.Current;
@@ -1558,7 +1633,12 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void dgvLivresCommande_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		/// <summary>
+        /// Fonction permettant de sélectionner une commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvLivresCommande_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (dgvLivresCommande.CurrentCell != null)
@@ -1572,10 +1652,22 @@ namespace MediaTekDocuments.view
 		#endregion
 		#region Onglet CommandesDvd
 
-		private List<Dvd> lesDvdsCommandes = new List<Dvd>();
-		private List<CommandeDocument> lesCommandesDocumentsDvd = new List<CommandeDocument>();
-		private readonly BindingSource bdgDvdCommandes = new BindingSource();
-		private List<Suivi> lesSuivisDvd = new List<Suivi>();
+		/// <summary>
+        /// Liste des DVD dans l'onglet CommandesDvd
+        /// </summary>
+        private List<Dvd> lesDvdsCommandes = new List<Dvd>();
+		/// <summary>
+        /// liste des commandes concernant le dvd concerné
+        /// </summary>
+        private List<CommandeDocument> lesCommandesDocumentsDvd = new List<CommandeDocument>();
+		/// <summary>
+        /// BindingSource des commandes concernant le dvd sélectioné
+        /// </summary>
+        private readonly BindingSource bdgDvdCommandes = new BindingSource();
+		/// <summary>
+        /// liste des suivis dans l'onglet Dvd
+        /// </summary>
+        private List<Suivi> lesSuivisDvd = new List<Suivi>();
 
 		/// <summary>
 		/// Ouverture de l'onglet Dvds : 
@@ -1636,7 +1728,12 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdDvdRecherche_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction appelée lors du clique sur le bouton recherche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdDvdRecherche_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbRechercheCmdDvd.Text.Equals(""))
@@ -1694,7 +1791,12 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdDvdAdd_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction appelée lors du clique sur le bouton ajouter une commande de l'onglet DVD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdDvdAdd_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbNewCmdDvdNumero.Text.Equals("") && !txbNewCmdDvdMontant.Text.Equals("") && !txbNewCmdDvdNbEx.Text.Equals(""))
@@ -1726,28 +1828,48 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdDvdRegler_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton permettant de modifier l'état d'une commande (Reglée)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdDvdRegler_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Réglée");
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdDvdLivre_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton permettant de modifier l'état d'une commande (Livrée)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdDvdLivre_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Livrée");
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdDvdRelancer_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton permettant de modifier l'état d'une commande (Relancée)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdDvdRelancer_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Relancée");
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdDvdSupprimer_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Bouton permettant de supprimer une commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdDvdSupprimer_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			CommandeDocument commandeDocument = (CommandeDocument)bdgDvdCommandes.Current;
@@ -1766,7 +1888,13 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void dgvDvdsCommande_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		/// <summary>
+        /// Fonction déclenché lors du clique sur les tête de liste
+        /// permet de le trie de celle-ci
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvDvdsCommande_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			string titreColonne = dgvDvdsCommande.Columns[e.ColumnIndex].HeaderText;
@@ -1791,7 +1919,13 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void dgvDvdsCommande_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		/// <summary>
+        /// Fonction appelée lors du clique sur une cellule
+        /// Sélectionne la commande
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvDvdsCommande_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (dgvDvdsCommande.CurrentCell != null)
@@ -1804,11 +1938,25 @@ namespace MediaTekDocuments.view
 		#endregion
 		#region Onglet Commande de Revues
 
-		private readonly BindingSource bdgCommandesRevue = new BindingSource();
-		private List<Revue> lesRevuesCmd = new List<Revue>();
-		private List<Abonnement> lesAbonnements = new List<Abonnement>();
+		/// <summary>
+        /// BindingSource des abonnements d'une revue
+        /// </summary>
+        private readonly BindingSource bdgCommandesRevue = new BindingSource();
+		/// <summary>
+        /// Liste des revues de l'onglet Commande de Revues
+        /// </summary>
+        private List<Revue> lesRevuesCmd = new List<Revue>();
+		/// <summary>
+        /// Liste des abonnements concernant une revue
+        /// </summary>
+        private List<Abonnement> lesAbonnements = new List<Abonnement>();
 
-		private void TabRevueCommandes_Enter(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction appelée lors de l'entrée sur l'onglet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TabRevueCommandes_Enter(object sender, EventArgs e)
 		{
 			lesRevuesCmd = controller.GetAllRevues();
             grpCmdRevueDel.Enabled = false;
@@ -1878,7 +2026,13 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdRevueRecherche_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction déclenché au clique sur le bouton recherche
+        /// Selectionne une revue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdRevueRecherche_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbCmdRevueRecherche.Text.Equals(""))
@@ -1896,7 +2050,13 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdRevueAdd_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction déclenché au clique sur le bouton Ajouter une commande
+        /// Ajoute un abonnement à une revue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdRevueAdd_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbNewCmdRevueNum.Text.Equals("") && !txbCmdRevueMontant.Text.Equals(""))
@@ -1927,7 +2087,13 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void dgvCmdRevue_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		/// <summary>
+        /// Fonction délenché au clique les tête de liste des commandes de revues
+        /// trie la liste
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvCmdRevue_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
         {
 			string titreColonne = dgvCmdRevue.Columns[e.ColumnIndex].HeaderText;
@@ -1948,7 +2114,12 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void btnCmdRevueSupprimer_Click(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction permettant de supprimer une commande de revue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCmdRevueSupprimer_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			Abonnement abonnement = (Abonnement)bdgCommandesRevue.Current;
@@ -1966,7 +2137,13 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-		private void dgvCmdRevue_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+		/// <summary>
+        /// Fonctio déclenché lors du clique sur une cellule
+        /// Fonction permettant de sélectionener un abonnement d'une revue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvCmdRevue_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			Abonnement abonnement = (Abonnement)bdgCommandesRevue.Current;
@@ -1980,7 +2157,14 @@ namespace MediaTekDocuments.view
 			}
 		}
         
-		private void FrmMediatek_Load(object sender, EventArgs e)
+		/// <summary>
+        /// Fonction s'éxecutant lors du chargement de la fenêtre
+        /// S'il y a des revues qui arrive à expirations, affiche celle-ci
+        /// au personnel habilité (appartenant au service administratif)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmMediatek_Load(object sender, EventArgs e)
 		{
 			List<FinAbonnement> lesabonnements = controller.GetFinAbonnement();
             if (lesabonnements.Count > 0 && Service.Libelle == "administratif")

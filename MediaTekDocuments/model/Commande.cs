@@ -20,7 +20,7 @@ namespace MediaTekDocuments.model
 		public double Montant { get; }
 
 		/// <summary>
-		/// Les composants de la classe
+		/// Constructeur de la classe
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="dateCommande"></param>

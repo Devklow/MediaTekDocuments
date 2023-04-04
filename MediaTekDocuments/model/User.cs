@@ -22,7 +22,7 @@ namespace MediaTekDocuments.model
 		public string Service { get; }
 
 		/// <summary>
-		/// Les composants de la classe
+		/// Constructeur de la classe
 		/// </summary>
 		/// <param name="Login"></param>&
 		/// <param name="Pwd"></param>

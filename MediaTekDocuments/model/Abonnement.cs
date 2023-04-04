@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Modèles de l'application
+/// </summary>
 namespace MediaTekDocuments.model
 {
 	public class Abonnement : Commande
@@ -18,7 +21,7 @@ namespace MediaTekDocuments.model
 		public string IdRevue { get; }
 
 		/// <summary>
-		/// Les composants de la classe
+		/// Constructeur de la classe
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="dateCommande"></param>

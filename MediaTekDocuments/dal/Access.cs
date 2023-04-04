@@ -9,6 +9,9 @@ using System.Configuration;
 using Serilog;
 using Serilog.Formatting.Json;
 
+/// <summary>
+/// Accès aux données
+/// </summary>
 namespace MediaTekDocuments.dal
 {
     /// <summary>

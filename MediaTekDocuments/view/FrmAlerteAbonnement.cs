@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using MediaTekDocuments.controller;
 using System.Windows.Forms;
 
+/// <summary>
+/// Vues de l'application
+/// </summary>
 namespace MediaTekDocuments.view
 {
 	/// <summary>
@@ -17,9 +20,16 @@ namespace MediaTekDocuments.view
 	/// </summary>
 	public partial class FrmAlerteAbonnement : Form
 	{
+		/// <summary>
+		/// Binding source des abonnements arrivant à échéance
+		/// </summary>
 		private readonly BindingSource bdgAbonnement = new BindingSource();
 
 
+		/// <summary>
+		/// Constructeur de la classe
+		/// </summary>
+		/// <param name="lesabonnements"></param>
 		public FrmAlerteAbonnement(List<FinAbonnement> lesabonnements)
 		{
 			InitializeComponent();
@@ -34,6 +44,11 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
+		/// <summary>
+		/// Fonction appelée par le bouton Ok
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnOk_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{

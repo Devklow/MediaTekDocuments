@@ -165,6 +165,11 @@ namespace MediaTekDocuments.controller
 			return access.SupprimerCommandes(Id);
 		}
 
+		/// <summary>
+		/// renvoie les abonnements concernant un document
+		/// </summary>
+		/// <param name="idDocument"></param>
+		/// <returns></returns>
 		public List<Abonnement> GetAbonnement(string idDocument)
 		{
 			return access.GetAbonnement(idDocument);

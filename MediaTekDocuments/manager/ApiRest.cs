@@ -2,6 +2,9 @@
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 
+/// <summary>
+/// Manager de l'Api Rest
+/// </summary>
 namespace MediaTekDocuments.manager
 {
     /// <summary>

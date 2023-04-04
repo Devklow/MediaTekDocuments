@@ -27,7 +27,7 @@ namespace MediaTekDocuments.model
 
 
 		/// <summary>
-		/// Composants de la classe
+		/// Constructeur de la classe
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="dateCommande"></param>

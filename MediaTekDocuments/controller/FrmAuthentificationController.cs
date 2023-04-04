@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Controleurs de l'application
+/// </summary>
 namespace MediaTekDocuments.controller
 {
 	/// <summary>

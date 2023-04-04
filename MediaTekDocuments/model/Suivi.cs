@@ -18,7 +18,7 @@ namespace MediaTekDocuments.model
 		public string Libelle { get; }
 
 		/// <summary>
-		/// Composants de la classe
+		/// Constructeur de la classe
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="libelle"></param>

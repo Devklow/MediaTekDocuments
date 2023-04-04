@@ -14,7 +14,13 @@ namespace MediaTekDocuments.view
 {
 	public partial class FrmAuthentification : Form
 	{
+		/// <summary>
+		/// Controller de la vue
+		/// </summary>
 		private readonly FrmAuthentificationController controller;
+		/// <summary>
+		/// Constructeur de la classe
+		/// </summary>
 		public FrmAuthentification()
 		{
 			InitializeComponent();
@@ -23,6 +29,11 @@ namespace MediaTekDocuments.view
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
+		/// <summary>
+		/// Fonction éxecuté lors du clique sur le bouton se connecter
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnseconnecter_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
