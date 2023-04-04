@@ -1331,11 +1331,6 @@ namespace MediaTekDocuments.view
 			}
 		}
 
-		private void groupBox4_Enter(object sender, EventArgs e)
-		{
-
-		}
-
 		/// <summary>
 		/// Tri sur les colonnes
 		/// </summary>

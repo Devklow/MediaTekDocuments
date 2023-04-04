@@ -19,8 +19,6 @@ namespace MediaTekDocuments.view
 	{
 		private readonly BindingSource bdgAbonnement = new BindingSource();
 
-		private readonly List<FinAbonnement> lesabonnements;
-
 
 		public FrmAlerteAbonnement(List<FinAbonnement> lesabonnements)
 		{
@@ -35,7 +33,9 @@ namespace MediaTekDocuments.view
 			dgvAbonnements.Focus();
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnOk_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			this.Dispose();
 		}

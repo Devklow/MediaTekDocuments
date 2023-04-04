@@ -14,7 +14,7 @@ namespace MediaTekDocuments.view
 {
 	public partial class FrmAuthentification : Form
 	{
-		private FrmAuthentificationController controller;
+		private readonly FrmAuthentificationController controller;
 		public FrmAuthentification()
 		{
 			InitializeComponent();
@@ -22,7 +22,9 @@ namespace MediaTekDocuments.view
 			this.AcceptButton = btnseconnecter;
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnseconnecter_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			string utilisateur = tbxUser.Text;
 			string pwd = tbxPwd.Text;

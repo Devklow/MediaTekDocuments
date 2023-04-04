@@ -1958,7 +1958,6 @@ namespace MediaTekDocuments.view
 			this.grpAddCmd.TabIndex = 22;
 			this.grpAddCmd.TabStop = false;
 			this.grpAddCmd.Text = "Ajouter une commande";
-			this.grpAddCmd.Enter += new System.EventHandler(this.groupBox4_Enter);
 			// 
 			// txtboxNewCommandeLivre
 			// 

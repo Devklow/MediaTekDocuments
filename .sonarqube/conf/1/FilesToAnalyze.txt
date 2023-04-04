@@ -1,0 +1,13 @@
+﻿C:\Users\Rizze\source\repos\MediaTekDocuments\MediaTekDocumentsTests\controller\FrmMediatekControllerTests.cs
+C:\Users\Rizze\source\repos\MediaTekDocuments\MediaTekDocumentsTests\Properties\AssemblyInfo.cs
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\fr\Microsoft.TestPlatform.AdapterUtilities.resources.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\fr\Microsoft.TestPlatform.CoreUtilities.resources.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\fr\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\net45\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\MediaTekDocumentsTests\packages.config
