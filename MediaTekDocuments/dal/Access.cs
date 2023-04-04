@@ -57,7 +57,7 @@ namespace MediaTekDocuments.dal
             String authenticationString;
             try
             {
-                authenticationString = getAuthenticationString(authenticationName);
+                authenticationString = GetAuthenticationString(authenticationName);
                
 				api = ApiRest.GetInstance(uriApi, authenticationString);
             }
@@ -364,7 +364,7 @@ namespace MediaTekDocuments.dal
 		/// </summary>
 		/// <param name="name"></param>
 		/// <returns></returns>
-		static string getAuthenticationString(string name)
+		static string GetAuthenticationString(string name)
 		{
 			string returnValue = null;
 			ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[name];
