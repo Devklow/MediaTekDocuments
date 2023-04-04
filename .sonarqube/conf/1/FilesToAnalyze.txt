@@ -10,4 +10,5 @@ C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\
 C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\Rizze\source\repos\MediaTekDocuments\packages\MSTest.TestAdapter.2.2.7\build\net45\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\Rizze\source\repos\MediaTekDocuments\MediaTekDocumentsTests\app.config
 C:\Users\Rizze\source\repos\MediaTekDocuments\MediaTekDocumentsTests\packages.config
