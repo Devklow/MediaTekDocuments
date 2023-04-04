@@ -17,7 +17,9 @@ namespace MediaTekDocuments.dal
         /// <summary>
         /// adresse de l'API
         /// </summary>
+#pragma warning disable S1075 // URIs should not be hardcoded
         private static readonly string uriApi = "http://localhost/rest_mediatekdocuments/";
+#pragma warning restore S1075 // URIs should not be hardcoded
 		/// <summary>
 		/// nom de connexion à la bdd
 		/// </summary>
