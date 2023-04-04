@@ -382,7 +382,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void tabDvd_Enter(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             lesDvd = controller.GetAllDvd();
             RemplirComboCategorie(controller.GetAllGenres(), bdgGenres, cbxDvdGenres);
@@ -415,7 +417,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnDvdNumRecherche_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (!txbDvdNumRecherche.Text.Equals(""))
             {
@@ -448,7 +452,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void txbDvdTitreRecherche_TextChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (!txbDvdTitreRecherche.Text.Equals(""))
             {
@@ -519,7 +525,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void cbxDvdGenres_SelectedIndexChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (cbxDvdGenres.SelectedIndex >= 0)
             {
@@ -538,7 +546,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void cbxDvdPublics_SelectedIndexChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (cbxDvdPublics.SelectedIndex >= 0)
             {
@@ -557,7 +567,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void cbxDvdRayons_SelectedIndexChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (cbxDvdRayons.SelectedIndex >= 0)
             {
@@ -577,7 +589,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void dgvDvdListe_SelectionChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (dgvDvdListe.CurrentCell != null)
             {
@@ -602,7 +616,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnDvdAnnulPublics_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             RemplirDvdListeComplete();
         }
@@ -612,7 +628,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnDvdAnnulRayons_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             RemplirDvdListeComplete();
         }
@@ -622,7 +640,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnDvdAnnulGenres_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             RemplirDvdListeComplete();
         }
@@ -654,7 +674,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void dgvDvdListe_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             VideDvdZones();
             string titreColonne = dgvDvdListe.Columns[e.ColumnIndex].HeaderText;
@@ -697,7 +719,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void tabRevues_Enter(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             lesRevues = controller.GetAllRevues();
             RemplirComboCategorie(controller.GetAllGenres(), bdgGenres, cbxRevuesGenres);
@@ -729,7 +753,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnRevuesNumRecherche_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (!txbRevuesNumRecherche.Text.Equals(""))
             {
@@ -762,7 +788,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void txbRevuesTitreRecherche_TextChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (!txbRevuesTitreRecherche.Text.Equals(""))
             {
@@ -831,7 +859,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void cbxRevuesGenres_SelectedIndexChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (cbxRevuesGenres.SelectedIndex >= 0)
             {
@@ -850,7 +880,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void cbxRevuesPublics_SelectedIndexChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (cbxRevuesPublics.SelectedIndex >= 0)
             {
@@ -869,7 +901,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void cbxRevuesRayons_SelectedIndexChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (cbxRevuesRayons.SelectedIndex >= 0)
             {
@@ -889,7 +923,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void dgvRevuesListe_SelectionChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (dgvRevuesListe.CurrentCell != null)
             {
@@ -914,7 +950,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnRevuesAnnulPublics_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             RemplirRevuesListeComplete();
         }
@@ -924,7 +962,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnRevuesAnnulRayons_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             RemplirRevuesListeComplete();
         }
@@ -934,7 +974,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnRevuesAnnulGenres_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             RemplirRevuesListeComplete();
         }
@@ -966,7 +1008,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void dgvRevuesListe_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             VideRevuesZones();
             string titreColonne = dgvRevuesListe.Columns[e.ColumnIndex].HeaderText;
@@ -1009,7 +1053,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void tabReceptionRevue_Enter(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             lesRevues = controller.GetAllRevues();
             txbReceptionRevueNumero.Text = "";
@@ -1042,7 +1088,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnReceptionRechercher_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (!txbReceptionRevueNumero.Text.Equals(""))
             {
@@ -1064,7 +1112,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void txbReceptionRevueNumero_TextChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             txbReceptionRevuePeriodicite.Text = "";
             txbReceptionRevueImage.Text = "";
@@ -1136,7 +1186,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnReceptionExemplaireImage_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             string filePath = "";
             OpenFileDialog openFileDialog = new OpenFileDialog()
@@ -1165,7 +1217,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void btnReceptionExemplaireValider_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (!txbReceptionExemplaireNumero.Text.Equals(""))
             {
@@ -1204,7 +1258,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void dgvExemplairesListe_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             string titreColonne = dgvReceptionExemplairesListe.Columns[e.ColumnIndex].HeaderText;
             List<Exemplaire> sortedList = new List<Exemplaire>();
@@ -1228,7 +1284,9 @@ namespace MediaTekDocuments.view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
         private void dgvReceptionExemplairesListe_SelectionChanged(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
             if (dgvReceptionExemplairesListe.CurrentCell != null)
             {
@@ -1311,7 +1369,9 @@ namespace MediaTekDocuments.view
             grpCmdLivreMod.Enabled = false;
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnLivresNumRecherche_click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbCmdLivresNumRecherche.Text.Equals(""))
 			{
@@ -1336,7 +1396,9 @@ namespace MediaTekDocuments.view
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void dgvLivresCommande_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			string titreColonne = dgvLivresCommande.Columns[e.ColumnIndex].HeaderText;
 			List<CommandeDocument> sortedList = new List<CommandeDocument>();
@@ -1359,7 +1421,9 @@ namespace MediaTekDocuments.view
 			RemplirLivreCommandes();
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnAjoutCommandeLivre_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txtboxNewCommandeLivre.Text.Equals("") && !txtboxNewMontant.Text.Equals("") && !txtboxNewNbExemplaire.Text.Equals(""))
 			{
@@ -1412,7 +1476,9 @@ namespace MediaTekDocuments.view
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnRegler_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
             ModifierCommande("Réglée");
 		}
@@ -1422,17 +1488,23 @@ namespace MediaTekDocuments.view
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnLivrer_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Livrée");
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnRelancer_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Relancée");
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnSupprimer_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			CommandeDocument commandeDocument = (CommandeDocument)bdgLivreCommandes.Current;
 			if (MessageBox.Show("Souhaitez-vous confirmer la supression?", "Etes vous sur ?", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -1485,7 +1557,9 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void dgvLivresCommande_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (dgvLivresCommande.CurrentCell != null)
 			{
@@ -1561,7 +1635,9 @@ namespace MediaTekDocuments.view
 			grpCmdDvdMod.Enabled = false;
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdDvdRecherche_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbRechercheCmdDvd.Text.Equals(""))
 			{
@@ -1617,7 +1693,9 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdDvdAdd_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbNewCmdDvdNumero.Text.Equals("") && !txbNewCmdDvdMontant.Text.Equals("") && !txbNewCmdDvdNbEx.Text.Equals(""))
 			{
@@ -1647,22 +1725,30 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdDvdRegler_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Réglée");
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdDvdLivre_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Livrée");
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdDvdRelancer_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			ModifierCommande("Relancée");
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdDvdSupprimer_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			CommandeDocument commandeDocument = (CommandeDocument)bdgDvdCommandes.Current;
 			if (MessageBox.Show("Souhaitez-vous confirmer la supression?", "Etes vous sur ?", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -1679,7 +1765,9 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void dgvDvdsCommande_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			string titreColonne = dgvDvdsCommande.Columns[e.ColumnIndex].HeaderText;
 			List<CommandeDocument> sortedList = new List<CommandeDocument>();
@@ -1702,7 +1790,9 @@ namespace MediaTekDocuments.view
 			RemplirDvdCommandes();
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void dgvDvdsCommande_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (dgvDvdsCommande.CurrentCell != null)
 			{
@@ -1787,7 +1877,9 @@ namespace MediaTekDocuments.view
 			RemplirCommandeRevue();
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdRevueRecherche_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbCmdRevueRecherche.Text.Equals(""))
 			{
@@ -1803,7 +1895,9 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdRevueAdd_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			if (!txbNewCmdRevueNum.Text.Equals("") && !txbCmdRevueMontant.Text.Equals(""))
 			{
@@ -1832,7 +1926,9 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void dgvCmdRevue_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
         {
 			string titreColonne = dgvCmdRevue.Columns[e.ColumnIndex].HeaderText;
 			List<Abonnement> sortedList = new List<Abonnement>();
@@ -1851,7 +1947,9 @@ namespace MediaTekDocuments.view
 			RemplirCommandesRevueListe(sortedList);
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void btnCmdRevueSupprimer_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			Abonnement abonnement = (Abonnement)bdgCommandesRevue.Current;
 			if (MessageBox.Show("Souhaitez-vous confirmer la supression?", "Etes vous sur ?", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -1867,7 +1965,9 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+#pragma warning disable IDE1006 // Styles d'affectation de noms
 		private void dgvCmdRevue_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+#pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
 			Abonnement abonnement = (Abonnement)bdgCommandesRevue.Current;
             if (controller.CheckExemplaire(abonnement))

@@ -16,7 +16,9 @@ namespace MediaTekDocuments.model
         public string IdRayon { get; }
         public string Rayon { get; }
 
+#pragma warning disable S107 // Methods should not have too many parameters
         public Document(string id, string titre, string image, string idGenre, string genre, string idPublic, string lePublic, string idRayon, string rayon)
+#pragma warning restore S107 // Methods should not have too many parameters
         {
             Id = id;
             Titre = titre;
