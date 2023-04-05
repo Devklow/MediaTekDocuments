@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaTekDocumentsTests", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowMediaTekDocuments", "SpecFlowMediaTekDocuments\SpecFlowMediaTekDocuments.csproj", "{1962DC42-633C-4F2E-86C3-A30CEFAF7CC5}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{4DB82295-DC19-4C6E-A637-378301022F9C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +27,6 @@ Global
 		{1962DC42-633C-4F2E-86C3-A30CEFAF7CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1962DC42-633C-4F2E-86C3-A30CEFAF7CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1962DC42-633C-4F2E-86C3-A30CEFAF7CC5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4DB82295-DC19-4C6E-A637-378301022F9C}.Debug|Any CPU.ActiveCfg = Debug
-		{4DB82295-DC19-4C6E-A637-378301022F9C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
