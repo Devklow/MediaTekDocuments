@@ -29,6 +29,7 @@ namespace MediaTekDocuments.view
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMediatek));
 			this.tabOngletsApplication = new System.Windows.Forms.TabControl();
 			this.tabLivres = new System.Windows.Forms.TabPage();
 			this.grpLivresInfos = new System.Windows.Forms.GroupBox();
@@ -190,6 +191,7 @@ namespace MediaTekDocuments.view
 			this.dtpNewCommande = new System.Windows.Forms.DateTimePicker();
 			this.label74 = new System.Windows.Forms.Label();
 			this.gbx = new System.Windows.Forms.GroupBox();
+			this.lblNoLivre = new System.Windows.Forms.Label();
 			this.grpCmdLivreMod = new System.Windows.Forms.GroupBox();
 			this.btnSupprimer = new System.Windows.Forms.Button();
 			this.btnLivrer = new System.Windows.Forms.Button();
@@ -223,6 +225,7 @@ namespace MediaTekDocuments.view
 			this.txbCmdLivresNumRecherche = new System.Windows.Forms.TextBox();
 			this.tabCommandeDVD = new System.Windows.Forms.TabPage();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.lblNoDvd = new System.Windows.Forms.Label();
 			this.grpCmdDvdMod = new System.Windows.Forms.GroupBox();
 			this.btnCmdDvdSupprimer = new System.Windows.Forms.Button();
 			this.btnCmdDvdLivre = new System.Windows.Forms.Button();
@@ -276,6 +279,7 @@ namespace MediaTekDocuments.view
 			this.txbCmdRevueMontant = new System.Windows.Forms.TextBox();
 			this.label105 = new System.Windows.Forms.Label();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.lblNoRevue = new System.Windows.Forms.Label();
 			this.grpCmdRevueDel = new System.Windows.Forms.GroupBox();
 			this.btnCmdRevueSupprimer = new System.Windows.Forms.Button();
 			this.label106 = new System.Windows.Forms.Label();
@@ -2023,6 +2027,7 @@ namespace MediaTekDocuments.view
 			// txtboxNewMontant
 			// 
 			this.txtboxNewMontant.Location = new System.Drawing.Point(424, 47);
+			this.txtboxNewMontant.MaxLength = 255;
 			this.txtboxNewMontant.Name = "txtboxNewMontant";
 			this.txtboxNewMontant.Size = new System.Drawing.Size(100, 20);
 			this.txtboxNewMontant.TabIndex = 21;
@@ -2057,6 +2062,7 @@ namespace MediaTekDocuments.view
 			// 
 			// gbx
 			// 
+			this.gbx.Controls.Add(this.lblNoLivre);
 			this.gbx.Controls.Add(this.grpCmdLivreMod);
 			this.gbx.Controls.Add(this.label73);
 			this.gbx.Controls.Add(this.dgvLivresCommande);
@@ -2086,6 +2092,19 @@ namespace MediaTekDocuments.view
 			this.gbx.TabIndex = 21;
 			this.gbx.TabStop = false;
 			this.gbx.Text = "Informations détaillées";
+			// 
+			// lblNoLivre
+			// 
+			this.lblNoLivre.AutoSize = true;
+			this.lblNoLivre.BackColor = System.Drawing.SystemColors.AppWorkspace;
+			this.lblNoLivre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblNoLivre.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.lblNoLivre.Location = new System.Drawing.Point(217, 309);
+			this.lblNoLivre.Name = "lblNoLivre";
+			this.lblNoLivre.Size = new System.Drawing.Size(235, 13);
+			this.lblNoLivre.TabIndex = 56;
+			this.lblNoLivre.Text = "Aucune commmandes pour ce document";
+			this.lblNoLivre.Visible = false;
 			// 
 			// grpCmdLivreMod
 			// 
@@ -2411,6 +2430,7 @@ namespace MediaTekDocuments.view
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.Controls.Add(this.lblNoDvd);
 			this.groupBox4.Controls.Add(this.grpCmdDvdMod);
 			this.groupBox4.Controls.Add(this.label91);
 			this.groupBox4.Controls.Add(this.dgvDvdsCommande);
@@ -2440,6 +2460,19 @@ namespace MediaTekDocuments.view
 			this.groupBox4.TabIndex = 25;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Informations détaillées";
+			// 
+			// lblNoDvd
+			// 
+			this.lblNoDvd.AutoSize = true;
+			this.lblNoDvd.BackColor = System.Drawing.SystemColors.AppWorkspace;
+			this.lblNoDvd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblNoDvd.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.lblNoDvd.Location = new System.Drawing.Point(217, 317);
+			this.lblNoDvd.Name = "lblNoDvd";
+			this.lblNoDvd.Size = new System.Drawing.Size(235, 13);
+			this.lblNoDvd.TabIndex = 57;
+			this.lblNoDvd.Text = "Aucune commmandes pour ce document";
+			this.lblNoDvd.Visible = false;
 			// 
 			// grpCmdDvdMod
 			// 
@@ -2983,6 +3016,7 @@ namespace MediaTekDocuments.view
 			// 
 			// groupBox5
 			// 
+			this.groupBox5.Controls.Add(this.lblNoRevue);
 			this.groupBox5.Controls.Add(this.grpCmdRevueDel);
 			this.groupBox5.Controls.Add(this.label106);
 			this.groupBox5.Controls.Add(this.dgvCmdRevue);
@@ -3010,6 +3044,19 @@ namespace MediaTekDocuments.view
 			this.groupBox5.TabIndex = 25;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Informations détaillées";
+			// 
+			// lblNoRevue
+			// 
+			this.lblNoRevue.AutoSize = true;
+			this.lblNoRevue.BackColor = System.Drawing.SystemColors.AppWorkspace;
+			this.lblNoRevue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblNoRevue.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.lblNoRevue.Location = new System.Drawing.Point(217, 322);
+			this.lblNoRevue.Name = "lblNoRevue";
+			this.lblNoRevue.Size = new System.Drawing.Size(235, 13);
+			this.lblNoRevue.TabIndex = 57;
+			this.lblNoRevue.Text = "Aucune commmandes pour ce document";
+			this.lblNoRevue.Visible = false;
 			// 
 			// grpCmdRevueDel
 			// 
@@ -3235,7 +3282,7 @@ namespace MediaTekDocuments.view
 			this.groupBox1.Size = new System.Drawing.Size(859, 41);
 			this.groupBox1.TabIndex = 24;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Recherches de Dvd";
+			this.groupBox1.Text = "Recherches de Revue";
 			// 
 			// btnCmdRevueRecherche
 			// 
@@ -3271,6 +3318,7 @@ namespace MediaTekDocuments.view
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(883, 659);
 			this.Controls.Add(this.tabOngletsApplication);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FrmMediatek";
 			this.Text = "Gestion des documents de la médiathèque";
 			this.Load += new System.EventHandler(this.FrmMediatek_Load);
@@ -3616,6 +3664,9 @@ namespace MediaTekDocuments.view
 		private System.Windows.Forms.Button btnCmdRevueSupprimer;
 		private System.Windows.Forms.Label label106;
 		private System.Windows.Forms.DataGridView dgvCmdRevue;
+		private System.Windows.Forms.Label lblNoLivre;
+		private System.Windows.Forms.Label lblNoDvd;
+		private System.Windows.Forms.Label lblNoRevue;
 	}
 }
 

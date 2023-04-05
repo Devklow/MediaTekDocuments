@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAuthentification));
 			this.label1 = new System.Windows.Forms.Label();
 			this.tbxPwd = new System.Windows.Forms.TextBox();
 			this.tbxUser = new System.Windows.Forms.TextBox();
@@ -106,6 +107,7 @@
 			this.Controls.Add(this.btnseconnecter);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FrmAuthentification";
 			this.Text = "Fenêtre de connection";
 			this.ResumeLayout(false);

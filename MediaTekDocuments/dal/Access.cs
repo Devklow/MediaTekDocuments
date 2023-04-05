@@ -235,8 +235,8 @@ namespace MediaTekDocuments.dal
 		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
 		public bool CreerCommandesDocument(string id, int nbExemplaire, string idLivreDvd, int suivi)
 		{
-			String jsonCommandeDocument = "{ \"id\" : " + id + ", \"nbExemplaire\" : " + nbExemplaire + ", " +
-                "\"idLivreDvd\" : \"" + idLivreDvd + "\"" + ", \"idSuivi\" : " + suivi + "}";
+			String jsonCommandeDocument = "{\"id\":" + id + ",\"nbExemplaire\":" + nbExemplaire + "," +
+                "\"idLivreDvd\":\"" + idLivreDvd + "\"" + ",\"idSuivi\":" + suivi + "}";
 
 			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
 			List<CommandeDocument> liste = TraitementRecup<CommandeDocument>(POST, "commandedocument/" + jsonCommandeDocument);
@@ -252,7 +252,7 @@ namespace MediaTekDocuments.dal
 		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
 		public bool SupprimerCommandes(string Id)
 		{
-			String jsonIdCommande = "{ \"id\" : " + Id + "}";
+			String jsonIdCommande = "{\"id\":" + Id + "}";
 
 			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
 			List<Commande> liste = TraitementRecup<Commande>(DELETE, "commande/" + jsonIdCommande);
@@ -290,7 +290,8 @@ namespace MediaTekDocuments.dal
                 {
 					Log.Error("code erreur = " + code + " message = " + (String)retour["message"]);
 					Console.WriteLine("code erreur = " + code + " message = " + (String)retour["message"]);
-                }
+					return null;
+				}
             }catch(Exception e)
             {
 				Log.Error("Erreur lors de l'accès à l'API : " + e.Message);
@@ -310,7 +311,7 @@ namespace MediaTekDocuments.dal
 		/// <returns>true si l'insertion a pu se faire (retour != null)</returns>
 		public bool ModifierCommandesDocument(string Id, int nbExemplaire, string idLivreDvd, int suivi)
 		{
-			String jsonCommandeDocument = "{ \"id\" : " + Id + " , \"nbExemplaire\" : " + nbExemplaire + ", \"idLivreDvd\" : \"" + idLivreDvd + "\"" + ", \"idSuivi\" : " + suivi + " }";
+			String jsonCommandeDocument = "{\"id\":" + Id + ",\"nbExemplaire\":" + nbExemplaire + ",\"idLivreDvd\":\"" + idLivreDvd + "\"" + ",\"idSuivi\":" + suivi + "}";
 
 			// récupération soit d'une liste vide (requête ok) soit de null (erreur)
 			List<CommandeDocument> liste = TraitementRecup<CommandeDocument>(PUT, "commandedocument/" + Id + "/" + jsonCommandeDocument);
@@ -339,8 +340,8 @@ namespace MediaTekDocuments.dal
 		public bool CreerCommandesRevue(string id, DateTime dateFinAbonnement, string idRevue)
 		{
 			String jsondateCommande = JsonConvert.SerializeObject(dateFinAbonnement, new CustomDateTimeConverter());
-			String jsonabonnement = "{  \"id\" : " + id + ", \"dateFinabonnement\" : " + jsondateCommande + 
-                ", \"idRevue\" :  \"" + idRevue + "\"" + "}";
+			String jsonabonnement = "{\"id\":" + id + ",\"dateFinabonnement\":" + jsondateCommande + 
+                ",\"idRevue\":\"" + idRevue + "\"" + "}";
 
 
 			// récupération soit d'une liste vide (requête ok) soit de null (erreur)

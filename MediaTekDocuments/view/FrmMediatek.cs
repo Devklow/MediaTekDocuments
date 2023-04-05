@@ -1409,19 +1409,29 @@ namespace MediaTekDocuments.view
 		/// <param name="livre">livre</param>
 		private void RemplirLivreCommandes()
 		{
-			bdgLivreCommandes.DataSource = lesCommandesDocuments;
-			dgvLivresCommande.DataSource = bdgLivreCommandes;
-			dgvLivresCommande.Columns["Id"].Visible = false;
-			dgvLivresCommande.Columns["idLivreDvd"].Visible = false;
-			dgvLivresCommande.Columns["suivi"].Visible = false;
-			dgvLivresCommande.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dgvLivresCommande.Columns["dateCommande"].DisplayIndex = 0;
-			dgvLivresCommande.Columns["montant"].DisplayIndex = 1;
-			dgvLivresCommande.Columns["dateCommande"].HeaderCell.Value = "Date";
-			dgvLivresCommande.Columns["nbExemplaire"].HeaderCell.Value = "Exemplaires";
-			dgvLivresCommande.Columns["libelle"].HeaderCell.Value = "Etape";
-            dgvLivresCommande.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            grpCmdLivreMod.Enabled = false;
+			lblNoLivre.Visible = (lesCommandesDocuments == null);
+			if (lesCommandesDocuments != null)
+			{
+				bdgLivreCommandes.DataSource = lesCommandesDocuments;
+				dgvLivresCommande.DataSource = bdgLivreCommandes;
+				dgvLivresCommande.Columns["Id"].Visible = false;
+				dgvLivresCommande.Columns["idLivreDvd"].Visible = false;
+				dgvLivresCommande.Columns["suivi"].Visible = false;
+				dgvLivresCommande.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+				dgvLivresCommande.Columns["dateCommande"].DisplayIndex = 0;
+				dgvLivresCommande.Columns["montant"].DisplayIndex = 1;
+				dgvLivresCommande.Columns["dateCommande"].HeaderCell.Value = "Date";
+				dgvLivresCommande.Columns["nbExemplaire"].HeaderCell.Value = "Exemplaires";
+				dgvLivresCommande.Columns["libelle"].HeaderCell.Value = "Etape";
+				dgvLivresCommande.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+				grpCmdLivreMod.Enabled = false;
+
+			}
+			else
+			{
+				bdgLivreCommandes.DataSource = null;
+			}
+			
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
@@ -1492,23 +1502,29 @@ namespace MediaTekDocuments.view
 		{
 			if (!txtboxNewCommandeLivre.Text.Equals("") && !txtboxNewMontant.Text.Equals("") && !txtboxNewNbExemplaire.Text.Equals(""))
 			{
+                try
+                {
+                    string id = txtboxNewCommandeLivre.Text;
+                    DateTime dateCommande = dtpNewCommande.Value;
+                    double montant = double.Parse(txtboxNewMontant.Text);
+                    int nbexemplaire = int.Parse(txtboxNewNbExemplaire.Text);
+                    string idLivreDvd = txbCmdLivresNumero.Text;
+                    int suivi = lesSuivis[0].Id;
+                    Commande commande = new Commande(id, dateCommande, montant);
 
-				string id = txtboxNewCommandeLivre.Text;
-				DateTime dateCommande = dtpNewCommande.Value;
-				double montant = double.Parse(txtboxNewMontant.Text);
-				int nbexemplaire = int.Parse(txtboxNewNbExemplaire.Text);
-				string idLivreDvd = txbCmdLivresNumero.Text;
-				int suivi = lesSuivis[0].Id;
-				Commande commande = new Commande(id, dateCommande, montant);
-
-				if (controller.CreerCommandes(commande) && controller.CreerCommandeDocuments(id, nbexemplaire, idLivreDvd, suivi))
-				{
-					lesCommandesDocuments = controller.GetCommandesDocument(txbCmdLivresNumero.Text);
-					RemplirLivreCommandes();
-				}
-				else
-				{
-					MessageBox.Show("numéro de commande déjà existant", "Erreur");
+                    if (controller.CreerCommandes(commande) && controller.CreerCommandeDocuments(id, nbexemplaire, idLivreDvd, suivi))
+                    {
+                        lesCommandesDocuments = controller.GetCommandesDocument(txbCmdLivresNumero.Text);
+                        RemplirLivreCommandes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("numéro de commande déjà existant", "Erreur");
+                    }
+                }
+                catch
+                {
+					MessageBox.Show("Informations invalides", "Erreur");
 				}
 
 			}
@@ -1520,19 +1536,19 @@ namespace MediaTekDocuments.view
 
 
 		/// <summary>
-		/// Module permettant de modifier l'état d'une commande en fonction de l'etape
+		/// Module permettant de modifier l'état d'une commande en fonction de l'etape d'un livre
 		/// </summary>
 		/// <param name="Etape"></param>
 		private void ModifierCommande(string Etape)
 		{
-			CommandeDocument commandesDocument = (CommandeDocument)bdgDvdCommandes.List[bdgDvdCommandes.Position];
-			Suivi suivi = lesSuivisDvd.Find(x => x.Libelle == Etape);
+			CommandeDocument commandesDocument = (CommandeDocument)bdgLivreCommandes.List[bdgLivreCommandes.Position];
+			Suivi suivi = lesSuivis.Find(x => x.Libelle == Etape);
 
 			if (MessageBox.Show("Souhaitez-vous confirmer la modification?", "Etes vous sur ?", MessageBoxButtons.OKCancel) == DialogResult.OK)
 			{
 				controller.ModifierCommande(commandesDocument.Id, commandesDocument.NbExemplaire, commandesDocument.IdLivreDvd, suivi.Id);
-				lesCommandesDocumentsDvd = controller.GetCommandesDocument(commandesDocument.IdLivreDvd);
-				RemplirDvdCommandes();
+				lesCommandesDocuments = controller.GetCommandesDocument(commandesDocument.IdLivreDvd);
+				RemplirLivreCommandes();
 			}
 		}
 
@@ -1713,18 +1729,27 @@ namespace MediaTekDocuments.view
 		/// <param name="Dvd">Dvd</param>
 		private void RemplirDvdCommandes()
 		{
-			bdgDvdCommandes.DataSource = lesCommandesDocumentsDvd;
-			dgvDvdsCommande.DataSource = bdgDvdCommandes;
-			dgvDvdsCommande.Columns["id"].Visible = false;
-			dgvDvdsCommande.Columns["idLivreDvd"].Visible = false;
-			dgvDvdsCommande.Columns["suivi"].Visible = false;
-			dgvDvdsCommande.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dgvDvdsCommande.Columns["dateCommande"].DisplayIndex = 0;
-			dgvDvdsCommande.Columns["montant"].DisplayIndex = 1;
-			dgvDvdsCommande.Columns[5].HeaderCell.Value = "Date";
-			dgvDvdsCommande.Columns[0].HeaderCell.Value = "Exemplaires";
-			dgvDvdsCommande.Columns[3].HeaderCell.Value = "Etape";
-			grpCmdDvdMod.Enabled = false;
+			lblNoLivre.Visible = (lesCommandesDocumentsDvd == null);
+			if (lesCommandesDocumentsDvd != null)
+			{
+				bdgDvdCommandes.DataSource = lesCommandesDocumentsDvd;
+				dgvDvdsCommande.DataSource = bdgDvdCommandes;
+				dgvDvdsCommande.Columns["id"].Visible = false;
+				dgvDvdsCommande.Columns["idLivreDvd"].Visible = false;
+				dgvDvdsCommande.Columns["suivi"].Visible = false;
+				dgvDvdsCommande.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+				dgvDvdsCommande.Columns["dateCommande"].DisplayIndex = 0;
+				dgvDvdsCommande.Columns["montant"].DisplayIndex = 1;
+				dgvDvdsCommande.Columns[5].HeaderCell.Value = "Date";
+				dgvDvdsCommande.Columns[0].HeaderCell.Value = "Exemplaires";
+				dgvDvdsCommande.Columns[3].HeaderCell.Value = "Etape";
+				grpCmdDvdMod.Enabled = false;
+
+			}
+			else
+			{
+				bdgDvdCommandes.DataSource = null;
+			}
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
@@ -1801,25 +1826,30 @@ namespace MediaTekDocuments.view
 		{
 			if (!txbNewCmdDvdNumero.Text.Equals("") && !txbNewCmdDvdMontant.Text.Equals("") && !txbNewCmdDvdNbEx.Text.Equals(""))
 			{
+                try
+                {
+				    string id = txbNewCmdDvdNumero.Text;
+				    DateTime dateCommande = dtpNewCmdDvd.Value;
+				    double montant = double.Parse(txbNewCmdDvdMontant.Text);
+				    int nbexemplaire = int.Parse(txbNewCmdDvdNbEx.Text);
+				    string idLivreDvd = txbCmdDvdNumero.Text;
+				    int suivi = lesSuivisDvd[0].Id;
+				    Commande commande = new Commande(id, dateCommande, montant);
 
-				string id = txbNewCmdDvdNumero.Text;
-				DateTime dateCommande = dtpNewCmdDvd.Value;
-				double montant = double.Parse(txbNewCmdDvdMontant.Text);
-				int nbexemplaire = int.Parse(txbNewCmdDvdNbEx.Text);
-				string idLivreDvd = txbCmdDvdNumero.Text;
-				int suivi = lesSuivisDvd[0].Id;
-				Commande commande = new Commande(id, dateCommande, montant);
-
-				if (controller.CreerCommandes(commande) && controller.CreerCommandeDocuments(id, nbexemplaire, idLivreDvd, suivi))
-				{
-					lesCommandesDocumentsDvd = controller.GetCommandesDocument(txbCmdDvdNumero.Text);
-					RemplirDvdCommandes();
+				    if (controller.CreerCommandes(commande) && controller.CreerCommandeDocuments(id, nbexemplaire, idLivreDvd, suivi))
+				    {
+					    lesCommandesDocumentsDvd = controller.GetCommandesDocument(txbCmdDvdNumero.Text);
+					    RemplirDvdCommandes();
+				    }
+				    else
+				    {
+					    MessageBox.Show("numéro de commande déjà existant", "Erreur");
+				    }
 				}
-				else
-				{
-					MessageBox.Show("numéro de commande déjà existant", "Erreur");
+                catch
+                {
+					MessageBox.Show("Informations invalides", "Erreur");
 				}
-
 			}
 			else
 			{
@@ -1827,16 +1857,33 @@ namespace MediaTekDocuments.view
 			}
 		}
 
+		/// <summary>
+		/// Module permettant de modifier l'état d'une commande en fonction de l'etape
+		/// </summary>
+		/// <param name="Etape"></param>
+		private void ModifierCommandeDvd(string Etape)
+		{
+			CommandeDocument commandesDocument = (CommandeDocument)bdgDvdCommandes.List[bdgDvdCommandes.Position];
+			Suivi suivi = lesSuivisDvd.Find(x => x.Libelle == Etape);
+
+			if (MessageBox.Show("Souhaitez-vous confirmer la modification?", "Etes vous sur ?", MessageBoxButtons.OKCancel) == DialogResult.OK)
+			{
+				controller.ModifierCommande(commandesDocument.Id, commandesDocument.NbExemplaire, commandesDocument.IdLivreDvd, suivi.Id);
+				lesCommandesDocumentsDvd = controller.GetCommandesDocument(commandesDocument.IdLivreDvd);
+				RemplirDvdCommandes();
+			}
+		}
+
 #pragma warning disable IDE1006 // Styles d'affectation de noms
-        /// <summary>
-        /// Bouton permettant de modifier l'état d'une commande (Reglée)
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCmdDvdRegler_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Bouton permettant de modifier l'état d'une commande (Reglée)
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnCmdDvdRegler_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
-			ModifierCommande("Réglée");
+			ModifierCommandeDvd("Réglée");
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
@@ -1848,7 +1895,7 @@ namespace MediaTekDocuments.view
         private void btnCmdDvdLivre_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
-			ModifierCommande("Livrée");
+			ModifierCommandeDvd("Livrée");
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
@@ -1860,7 +1907,7 @@ namespace MediaTekDocuments.view
         private void btnCmdDvdRelancer_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
-			ModifierCommande("Relancée");
+			ModifierCommandeDvd("Relancée");
 		}
 
 #pragma warning disable IDE1006 // Styles d'affectation de noms
@@ -1878,7 +1925,7 @@ namespace MediaTekDocuments.view
 				if (controller.SupprimerCommande(commandeDocument.Id))
 				{
 					lesCommandesDocumentsDvd = controller.GetCommandesDocument(txbCmdDvdNumero.Text);
-					RemplirLivreCommandes();
+					RemplirDvdCommandes();
 				}
 				else
 				{
@@ -1981,6 +2028,7 @@ namespace MediaTekDocuments.view
 		{
 			if (lesAbonnements != null)
 			{
+                lblNoRevue.Visible = false;
 				bdgCommandesRevue.DataSource = lesAbonnements;
 				dgvCmdRevue.DataSource = bdgCommandesRevue;
 				dgvCmdRevue.Columns["id"].Visible = false;
@@ -1994,6 +2042,7 @@ namespace MediaTekDocuments.view
 			}
 			else
 			{
+				lblNoRevue.Visible = true;
 				bdgCommandesRevue.DataSource = null;
 			}
 		}
@@ -2059,26 +2108,29 @@ namespace MediaTekDocuments.view
         private void btnCmdRevueAdd_Click(object sender, EventArgs e)
 #pragma warning restore IDE1006 // Styles d'affectation de noms
 		{
-			if (!txbNewCmdRevueNum.Text.Equals("") && !txbCmdRevueMontant.Text.Equals(""))
-			{
-
-				string id = txbNewCmdRevueNum.Text;
-				DateTime dateCommande = dtpCmdRevueCommande.Value;
-				double montant = double.Parse(txbCmdRevueMontant.Text);
-				DateTime dateFinAbonnement = dtpCmdRevueAbonnement.Value;
-				string idRevue = txbCmdRevueNum.Text;
-
-
-				Commande commande = new Commande(id, dateCommande, montant);
-				if (controller.CreerCommandes(commande) && controller.CreerCommandesRevue(id, dateFinAbonnement, idRevue))
-				{
-					RemplirCommandeRevue();
+            if (!txbNewCmdRevueNum.Text.Equals("") && !txbCmdRevueMontant.Text.Equals(""))
+            {
+                try
+                {
+                    string id = txbNewCmdRevueNum.Text;
+                    DateTime dateCommande = dtpCmdRevueCommande.Value;
+                    double montant = double.Parse(txbCmdRevueMontant.Text);
+                    DateTime dateFinAbonnement = dtpCmdRevueAbonnement.Value;
+                    string idRevue = txbCmdRevueNum.Text;
+                    Commande commande = new Commande(id, dateCommande, montant);
+                    if (controller.CreerCommandes(commande) && controller.CreerCommandesRevue(id, dateFinAbonnement, idRevue))
+                    {
+                        RemplirCommandeRevue();
+                    }
+                    else
+                    {
+                        MessageBox.Show("numéro de commande déjà existant", "Erreur");
+                    }
+                }
+                catch
+                {
+					MessageBox.Show("Informations invalides", "Erreur");
 				}
-				else
-				{
-					MessageBox.Show("numéro de commande déjà existant", "Erreur");
-				}
-
 			}
 			else
 			{
@@ -2167,7 +2219,7 @@ namespace MediaTekDocuments.view
         private void FrmMediatek_Load(object sender, EventArgs e)
 		{
 			List<FinAbonnement> lesabonnements = controller.GetFinAbonnement();
-            if (lesabonnements.Count > 0 && Service.Libelle == "administratif")
+            if (lesabonnements != null && Service.Libelle == "administratif")
             {
 				FrmAlerteAbonnement alerteFinAbonnements = new FrmAlerteAbonnement(lesabonnements)
 				{

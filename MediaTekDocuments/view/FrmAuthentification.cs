@@ -52,7 +52,7 @@ namespace MediaTekDocuments.view
 				{
 					if (Service.Libelle == "culture")
 					{
-						MessageBox.Show("Vous n'avez pas accès à cette application");
+						MessageBox.Show("Vous n'avez pas accès à cette application", "Erreur d'accès");
 						this.Dispose();
 					}
 					else
